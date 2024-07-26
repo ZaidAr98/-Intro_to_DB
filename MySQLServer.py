@@ -8,8 +8,9 @@ try:
     password="yourpassword",
     database="mydb"
 )
-finally: 
-    print("can't connect ")
+except mysql.connector.Error as err:
+    print(f"Error: {err}")
+
 mycursor = mydb.cursor()
 
 # Create a table named `customers` (if it doesn't exist)
